@@ -7,17 +7,18 @@ import java.io.IOException;
 public class JSONwriter {
 
     public  void createFileIfNotExits(String firstname, String lastname){
+        String yourFile = "Barcodewebapp/src/main/resources/Timestamps/"+firstname+lastname+".JSON";
+        File tmpDir = new File(yourFile);
+        boolean exists = tmpDir.exists();
         try {
 
-            File myFile = new File("Timestamps/"+firstname,lastname+".JSON");
-            if (myFile.createNewFile()){
-                System.out.println("File is created!");
-            }else{
-                System.out.println("File already exists.");
+            if (!exists) {
+                FileOutputStream fos = new FileOutputStream(yourFile);
+                fos.flush();
+                fos.close();
             }
+        } catch (Exception e){
 
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
