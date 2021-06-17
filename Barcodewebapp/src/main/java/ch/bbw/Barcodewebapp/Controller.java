@@ -14,12 +14,13 @@ public class Controller {
         code += values[1] + ".";
         code += values[2] + ".";
         code += values[3] + ".";
-        code += values[4] + ".";
-        code += values[5];
         return code;
     }
 
     public void setValuesOfUser(User user, String[] values){
-
+        user.setFirstname(values[0]);
+        user.setLastname(values[1]);
+        user.setClearance(Integer.parseInt(values[2]));
+        user.setDepartment(Integer.parseInt(values[3]));
     }
 }
