@@ -22,7 +22,9 @@ public class MainController {
     @PostMapping("/decode")
     public String mySubmitMethod(Model model, @ModelAttribute Barcode barcode) {
         model.addAttribute("barcode", barcode);
-        viewcode(barcode);
+        Barcontroller controller = new Barcontroller();
+        viewcode(controller.decode(barcode.getBarcode()));
+        model.addAttribute("user", controller.decode(barcode.getBarcode()));
         return "decode";
     }
 
@@ -40,11 +42,10 @@ public class MainController {
         return "encode";
     }
 
-    public void viewcode(Barcode barcode) {
+    public void viewcode(User user) {
         Barcontroller barcontroller = new Barcontroller();
         Time time = new Time();
         JSONwriter jsoNwriter = new JSONwriter();
-        User user = barcontroller.decode(barcode.getBarcode());
         user.setLastLoggedIn(time.getTime());
         jsoNwriter.createFileIfNotExits(user);
     }

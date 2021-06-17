@@ -8,11 +8,18 @@
 <body>
 <h1>Decode</h1>
 <form action="#" th:action="@{/decode}"th:object="${barcode}"method="post">
-    <p>Barcode: <input type="text" th:field="*{Barcode}"/></p>
+    <p>Barcode: <input type="text" th:field="*{barcode}"/></p>
 
     <p><input type="submit" value="Submit"/></p>
 </form>
 
-<p th:text="${barcode.getfirstname()}"></p>
+<ul>
+    <li th:text="${user.getFirstname()}"></li>
+    <li th:text="${user.getLastname()}"></li>
+    <li th:text="${user.getDepartment()}"></li>
+    <li th:text="${user.getClearance()}"></li>
+    <li th:text="${user.getLastLoggedIn()}"></li>
+</ul>
+
 </body>
 </html>
