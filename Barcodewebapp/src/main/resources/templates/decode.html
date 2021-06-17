@@ -6,10 +6,9 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Persons</h1>
-<form action="#" th:action=""th:object=""method="post">
-    <p>height: <input type="text" th:field=""/></p>
-    <p>weight: <input type="text" th:field=""/></p>
+<h1>Decode</h1>
+<form action="#" th:action="@{/decode}"th:object="${barcode}"method="post">
+    <p>Barcode: <input type="text" th:field="*{Barcode}"/></p>
 
     <p><input type="submit" value="Submit"/></p>
 </form>
