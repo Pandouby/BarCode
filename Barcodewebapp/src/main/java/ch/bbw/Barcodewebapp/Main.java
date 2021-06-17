@@ -11,6 +11,5 @@ public class Main {
         Controller controller = new Controller();
 
         User user = new User();
-
     }
 }
