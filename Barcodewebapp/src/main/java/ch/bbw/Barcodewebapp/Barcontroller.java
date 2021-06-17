@@ -1,6 +1,6 @@
 package ch.bbw.Barcodewebapp;
 
-public class Controller {
+public class Barcontroller {
 
     public User decode(String code) {
         String[] values = code.split("\\.", -1);

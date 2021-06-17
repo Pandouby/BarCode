@@ -1,13 +1,11 @@
 package ch.bbw.Barcodewebapp;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
         JSONwriter jsoNwriter = new JSONwriter();
         User yves = new User("Yves", "Huber", 2, 32);
         jsoNwriter.createFileIfNotExits(yves);
-        Controller controller = new Controller();
+        Barcontroller controller = new Barcontroller();
 
         User test = new User("Yves", "Huber", 9, 72);
         System.out.println(controller.encode(test));
