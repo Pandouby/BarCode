@@ -3,6 +3,9 @@ package ch.bbw.Barcodewebapp;
 import java.util.Date;
 
 public class User {
+
+    //Code -> name.lastname.clerance.department
+
     private String firstname;
     private String lastname;
 
@@ -11,6 +14,17 @@ public class User {
 
     private int department;
     private int clearance;
+
+    public User() {}
+
+    public User(String firstname, String lastname, int department, int clearance) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.department = department;
+        this.clearance = clearance;
+    }
+
+
 
     public String getFirstname() {
         return firstname;
