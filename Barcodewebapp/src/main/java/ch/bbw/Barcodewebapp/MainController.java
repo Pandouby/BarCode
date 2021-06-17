@@ -26,6 +26,19 @@ public class MainController {
         return "decode";
     }
 
+    @GetMapping("/encode")
+    public String encode(Model model) {
+        model.addAttribute("user", new User());
+        return "encode";
+    }
+
+    @PostMapping("/encode")
+    public String postencode(Model model, @ModelAttribute User user) {
+        Barcontroller barcontroller = new Barcontroller();
+        model.addAttribute("user", user);
+        model.addAttribute("encoded", barcontroller.encode(user));
+        return "encode";
+    }
 
     public void viewcode(Barcode barcode) {
         Barcontroller barcontroller = new Barcontroller();

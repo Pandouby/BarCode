@@ -1,10 +1,22 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<h1>Decode</h1>
+<form action="#" th:action="@{/encode}"th:object="${user}"method="post">
+    <p>Firstname: <input type="text" th:field="*{firstname}"/></p>
+    <p>Lastname: <input type="text" th:field="*{lastname}"/></p>
+    <p>Department: <input type="text" th:field="*{department}"/></p>
+    <p>Clearance: <input type="text" th:field="*{clearance}"/></p>
+
+    <p><input type="submit" value="Submit"/></p>
+</form>
+
+<p th:text="${encoded}"></p>
 
 </body>
 </html>
