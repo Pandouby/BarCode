@@ -28,8 +28,12 @@ public class MainController {
 
 
     public void viewcode(Barcode barcode) {
-        System.out.println(barcode.getBarcode());
-
+        Barcontroller barcontroller = new Barcontroller();
+        Time time = new Time();
+        JSONwriter jsoNwriter = new JSONwriter();
+        User user = barcontroller.decode(barcode.getBarcode());
+        user.setLastLoggedIn(time.getTime());
+        jsoNwriter.createFileIfNotExits(user);
     }
 
 }
