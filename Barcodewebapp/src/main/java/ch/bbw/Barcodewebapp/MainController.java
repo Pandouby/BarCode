@@ -37,6 +37,7 @@ public class MainController {
     @PostMapping("/encode")
     public String postencode(Model model, @ModelAttribute User user) {
         Barcontroller barcontroller = new Barcontroller();
+        user.setLastLoggedIn(Time.getTime());
         model.addAttribute("user", user);
         model.addAttribute("encoded", barcontroller.encode(user));
         return "encode";
