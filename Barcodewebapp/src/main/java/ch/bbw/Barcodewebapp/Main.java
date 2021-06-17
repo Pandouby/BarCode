@@ -5,7 +5,8 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         JSONwriter jsoNwriter = new JSONwriter();
-        jsoNwriter.createFileIfNotExits("Yves", "Huber");
+        User yves = new User("Yves", "Huber", 2, 32);
+        jsoNwriter.createFileIfNotExits(yves);
         Controller controller = new Controller();
 
         User test = new User("Yves", "Huber", 9, 72);
