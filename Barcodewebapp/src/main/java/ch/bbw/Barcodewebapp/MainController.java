@@ -23,7 +23,10 @@ public class MainController {
     public String mySubmitMethod(Model model, @ModelAttribute Barcode barcode) {
         model.addAttribute("barcode", barcode);
         Barcontroller controller = new Barcontroller();
-        model.addAttribute("user", controller.decode(barcode.getBarcode()));
+        User user = controller.decode(barcode.getBarcode());
+        model.addAttribute("user", user);
+        Time time = new Time();
+        user.setLastLoggedIn(time.getTime());
         return "decode";
     }
 
