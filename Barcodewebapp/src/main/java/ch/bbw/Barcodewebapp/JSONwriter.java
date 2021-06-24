@@ -22,7 +22,7 @@ public class JSONwriter {
 
             }
             try {
-                FileWriter myWriter = new FileWriter("/Users/silvandubach/Desktop/Timestamps/"+user.getFirstname()+user.getLastname()+".txt");
+                FileWriter myWriter = new FileWriter("/Users/silvandubach/Desktop/Timestamps/"+user.getFirstname()+user.getLastname()+".txt", true);
                 myWriter.write(strDate + "\n");
                 myWriter.close();
             } catch (IOException e) {

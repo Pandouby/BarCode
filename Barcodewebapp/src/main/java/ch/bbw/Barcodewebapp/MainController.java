@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MainController {
 
-
+    Sessionusers Session = new Sessionusers();
     @GetMapping("/decode")
     public String index(Model model) {
         model.addAttribute("barcode", new Barcode());
@@ -28,7 +28,13 @@ public class MainController {
         model.addAttribute("user", user);
         Time time = new Time();
         user.setLastLoggedIn(time.getTime());
-        JSONwriter.createFileIfNotExits(user);
+        if (Session.isregisterd(user.getFirstname(),user.getLastname()) == true) {
+            System.out.println("is registerd");
+            JSONwriter.createFileIfNotExits(user);
+        }
+        else {
+            System.out.println("Not registerd");
+        }
         return "decode";
     }
 
@@ -44,15 +50,8 @@ public class MainController {
         user.setLastLoggedIn(Time.getTime());
         model.addAttribute("user", user);
         model.addAttribute("encoded", barcontroller.encode(user));
+        Session.registeruser(user.getFirstname(),user.getLastname());
         return "encode";
-    }
-
-    public void viewcode(User user) {
-        Barcontroller barcontroller = new Barcontroller();
-        Time time = new Time();
-        JSONwriter jsoNwriter = new JSONwriter();
-        user.setLastLoggedIn(time.getTime());
-        jsoNwriter.createFileIfNotExits(user);
     }
 
 }
