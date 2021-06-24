@@ -28,6 +28,7 @@ public class MainController {
         model.addAttribute("user", user);
         Time time = new Time();
         user.setLastLoggedIn(time.getTime());
+        JSONwriter.createFileIfNotExits(user);
         return "decode";
     }
 
