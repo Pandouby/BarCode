@@ -9,8 +9,8 @@ import java.text.SimpleDateFormat;
 
 public class JSONwriter {
 
-    public  void createFileIfNotExits(User user){
-        String yourFile = "Barcodewebapp/src/main/resources/Timestamps/"+user.getFirstname()+user.getLastname()+".txt";
+    public static void createFileIfNotExits(User user){
+        String yourFile = "/Users/silvandubach/Desktop/Timestamps/"+user.getFirstname()+user.getLastname()+".txt";
         File tmpDir = new File(yourFile);
         boolean exists = tmpDir.exists();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
@@ -22,7 +22,7 @@ public class JSONwriter {
 
             }
             try {
-                FileWriter myWriter = new FileWriter("Barcodewebapp/src/main/resources/Timestamps/"+user.getFirstname()+user.getLastname()+".txt");
+                FileWriter myWriter = new FileWriter("/Users/silvandubach/Desktop/Timestamps/"+user.getFirstname()+user.getLastname()+".txt");
                 myWriter.write(strDate + "\n");
                 myWriter.close();
             } catch (IOException e) {
