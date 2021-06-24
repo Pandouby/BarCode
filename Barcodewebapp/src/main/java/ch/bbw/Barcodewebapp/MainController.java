@@ -16,6 +16,7 @@ public class MainController {
     @GetMapping("/decode")
     public String index(Model model) {
         model.addAttribute("barcode", new Barcode());
+        model.addAttribute("user", new User());
         return "decode";
     }
 
